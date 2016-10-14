@@ -1,0 +1,86 @@
+
+html
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <form method="post" action="ClassText">
+            <label>Q 1. Which is valid keyword in java ?</label><br>
+            <input type="radio" name="r1" value="interface"/> Inteface
+            <input type="radio" name="r1" value="float"/> Float
+            <input type="radio" name="r1" value="String"/> String
+            <input type="radio" name="r1" value="all"/> All of the above
+            <br><br>
+            <label>Q 2. What is sent to user via hhtp invoked using HTTP protocol on user's computer and run on user's computer as an application ?</label><br>
+ <input type="radio" name="r2" value="appln"/>A Java Application
+<input type="radio" name="r2" value="applet"/>A Java Applet
+<input type="radio" name="r2" value="servlet"/>A java servlet
+ <input type="radio" name="r2" value="none"/>None of the above
+ <br><br>
+  <label> Q 3.JDBC stands for ?</label><br>
+<input type="radio" name="r3" value="jdbc"/>Java DataBase Connectivity
+ <input type="radio" name="r3" value="jdbc1"/>Java DataBase Component
+ <input type="radio" name="r3" value="jdbc2"/>Java DataBase Control
+  <input type="radio" name="r3" value="jdbc4"/>None of the above
+  <br> <br>
+  <label>Q 4.What is Bytecode ? </label><br>
+  <input type="radio" name="r4" value="msc"/>Machine Specific Code
+   <input type="radio" name="r4" value="jcu"/> Java Code
+  <input type="radio" name="r4" value="mic"/>Machine Independent code
+    <input type="radio" name="r4" value="none"/>None of the above
+     <br>  <br>
+    <input type="submit" value="Display Result"/>
+     <input type="reset" value="Reset"/>
+    </form>
+  </body> </html>
+ClassTest.java
+package servlet;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+@WebServlet(name="ClassText", urlPatterns={"/ClassText"})
+public class ClassText extends HttpServlet {
+protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+ throws ServletException, IOException {
+ response.setContentType("text/html;charset=UTF-8");
+ PrintWriter out = response.getWriter();
+  try {
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ClassText</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            if(request.getParameter("r1").equals("interface")&&request.getParameter("r2").equals("appln")&&request.getParameter("r3").equals("jdbc")&&request.getParameter("r4").equals("msc"))
+                out.print("<h1>You are PASS</h1>");
+            else
+                out.print("<h1>Better LUCK next time !!!</h1>");
+           out.println("</body>");
+            out.println("</html>");            
+        }
+ finally { 
+            out.close();
+        }    } 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        processRequest(request, response);
+    } 
+@Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        processRequest(request, response);
+    }   
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }  }
