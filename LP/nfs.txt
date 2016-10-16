@@ -1,24 +1,46 @@
-login to the root users
-nfs server
-#rpm -a/grep nfs
-#if config
+1) check wheather nfs is installed or not 
+#rpm -qa|grep nfs 
+2)to know ip of ur machine  
+#ifconfig 
+3)to know present working directory 
 #pwd
-#mkdir tyitserver
-#touch f1 f2 f3
-#cat> tyitnfs.text
+4) create the directory to tyit server
+  #mkdir tyitserver
+5)change dir to tyit server
+  #cd tyitserver
+6)create files
+ #touch f1 f2 f3
+7) craete file nfs.txt
+ #cat>tyitnfs.txt
 welcome to tyit
-#vi/etc/exports
-/root/tyitsever
-#service nfs strt
-#service nfs restrt
-#showmount -e ipaddress
-#service iptables stop
-#chmod -r 777 /root/tyitserver
+ctrl+d to exit
+8)open the file/etc/exports using vi editor
+# vi/etc/export
+/root/tyitserver *(rw,sync)
+to save press esc:wq!
+9)# service nfs start
+10) # service nfs start
+11) mount the file on ip address
+ #showmount -e 172.16.140
+12) stop the service for firewalls
+ #service iptables stop
+13)give all commands
+ #chmod 777 /root/tyitserver
+14)to check list of files
+ #ls
+ f1,f2,f3 tyitnfs.txt
 
 nfs client
+1) to know present working directory
 #pwd
-#service iptables stop
+2)stop the service for firewall
+# service iptables stop
+3) create the directory nfs client
 #mkdir nfsclient
-#mount -t nfs ipaddress :/root/tyitserver/root/nfsclient
-#cd nfsclient()
+4)mount the files which are created
+# mount -t nfs 192.168.10.128:/root/tyitserver/home/nfsclient
+5)change the directory to nfs client
+ #cd/home/nfsclient
+6)list the list of shared files
 #ls
+ 
