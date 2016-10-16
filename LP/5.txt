@@ -1,0 +1,142 @@
+wap in c++ using compiler
+
+
+
+wap check weather the no is even or odd
+
+vi evenodd.cpp
+[student@localhost ~]$ g++ evenodd.cpp -o evenodd
+[student@localhost ~]$ ./evenodd
+enter an integer:50  
+50is even
+[student@localhost ~]$ ./evenodd
+enter an integer:59
+59is odd
+[student@localhost ~]$ 
+
+
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+int integer;
+cout<<"enter an integer:";
+cin>>integer;
+if(integer%2==0)
+cout<<integer<<"is even"<<endl;
+else
+cout<<integer<<"is odd"<<endl;
+return 0;
+}
+
+
+factorial of a no
+
+#include<iostream>
+using namespace std;
+int main()
+{
+int n,i,fact=1;
+cout<<"enter the number:";
+cin>>n;
+for(i=1;i<=n;i++)
+{
+fact=fact*i;
+}
+cout<<"factorial of"<<n<<"is"<<fact<<endl;
+}
+
+
+
+[student@localhost ~]$ vi factorial.cpp
+[student@localhost ~]$ g++ factorial.cpp -o factorial
+
+[student@localhost ~]$ ./factorial
+enter the number:5
+factorial of5is120
+[student@localhost ~]$ ./factorial
+enter the number:6 
+factorial of6is720
+
+fabonci series
+
+#include<iostream>
+using namespace std;
+int main()
+{
+int n,i,first=0,second=1,next;
+cout<<"enter number &terms of fibonacci series:";
+cin>>n;
+cout<<"first"<<n<<"terms of fibonacci series";
+for(i=0;i<n;i++)
+{
+if(i<=1)
+next=1;
+else
+{
+next=first+second;
+first=second;
+second=next;
+}
+cout<<next<<endl;
+}
+return 0;
+}
+
+
+
+
+[student@localhost ~]$ vi febonici.cpp
+[student@localhost ~]$ g++ febonici.cpp -o fabonici
+[student@localhost ~]$ ./fabonici
+enter number &terms of fibonacci series:9
+first9terms of fibonacci series1
+1
+1
+2
+3
+5
+8
+13
+21
+
+prime no
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+int num;
+cout<<"enter a no:";
+cin>>num;
+int i=2;
+while(i<=num-1)
+{
+if(num%i==0)
+{
+cout<<"\n"<<num<<"is not prime";
+break;
+}
+i++;
+}
+if(i==num)
+cout<<"\n"<<num<<"is a prime\n";
+return 0;
+}
+
+
+
+5is a prime[student@localhost ~]$ vi prime.cpp
+[student@localhost ~]$ g++ prime.cpp -o prime
+^[[A[student@localhost ~]$ ./prime
+enter a no:5
+
+5is a prime
+[student@localhost ~]$ 
+
+
+

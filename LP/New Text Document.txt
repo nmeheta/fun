@@ -1,0 +1,59 @@
+coomand in linux
+touch used to create file
+ls use for listing
+mkdir used create 
+cd change directory
+cat >pqr to creat file pqr abd write in file
+cat pqr to read the file
+rmdir filename remove the file
+rm xyz remove file from a directory
+cp file1 file2 copy contain from file one two 
+mv file1 file2 file3 move file1,2 into file3
+pwd present working directory
+command                       value
+u-usear                       +assign
+g- group                      - remove
+o - other                     = assign ansolute permission
+a all                        r read
+                             w write 
+                             x execute
+
+cal 04 1991 calender
+date todays date
+date +%m show month
+date +%M show minute
+date +%h     show month in chahractor
+date +"%h%m" show month in no and charactor
+date +%d     show
+date +%y
+date +%d       show date
+date +%T        shoe timestamp
+date +%D        show date
+echo "welcome tyit"
+bc use as calculater
+wc mno show you no of line nof word and no of charctor
+wc -l mno   show word
+wc -w mno    show word
+wc -c mno     show charactor
+
+
+
+1221|raj malhotra|execuate|12/06/2006|75000
+1222|jay sachh|c.e.o|31/07/2008|1000000
+1223|sheetal patel|president|25/06/1986|50000
+1224|ram kappor|h.r|02/12/2001|85475
+1225|shri mehra|admin|14/05/2003|9000
+1226|alia sharma|recepnist|17/08/2011|5000
+
+tail -n 3 file1  show bottom 3
+head -n 3 file1 show top 3 
+
+head -n 3 file1 | tee file2  copy top 3 line into file2
+cut -c 5-22,38-51 file2      cut by charctor at given value5 to 22 and 38 to 51 from file2
+cut -d "|" -f 2,5 file2 | tee file3  cut specified from given value
+cut -d "|" -f 2,5 file2 > file4  copy but not show on screen
+paste file3 file4
+paste -d "|" file3 file4
+sort -t "|"  -k 2 file1
+sort -t "|" -r  -k 1 file3
+sort -t "|" -k 4.8,4.10 file1

@@ -1,0 +1,108 @@
+[student@localhost ~]$ cat /etc/motd
+[student@localhost ~]$ cat /etc/issue
+Red Hat Enterprise Linux Server release 5.3 (Tikanga)
+Kernel \r on an \m
+
+[student@localhost ~]$ cat /etc/fstab
+LABEL=/                 /                       ext3    defaults        1 1
+LABEL=/boot             /boot                   ext3    defaults        1 2
+tmpfs                   /dev/shm                tmpfs   defaults        0 0
+devpts                  /dev/pts                devpts  gid=5,mode=620  0 0
+sysfs                   /sys                    sysfs   defaults        0 0
+proc                    /proc                   proc    defaults        0 0
+LABEL=SWAP-sda3         swap                    swap    defaults        0 0
+[student@localhost ~]$ cat /tec/logrotate.conf
+cat: /tec/logrotate.conf: No such file or directory
+[student@localhost ~]$ 
+[student@localhost ~]$ cat /etc/logrotate.conf
+# see "man logrotate" for details
+# rotate log files weekly
+weekly
+
+# keep 4 weeks worth of backlogs
+rotate 4
+
+# create new (empty) log files after rotating old ones
+create
+
+# uncomment this if you want your log files compressed
+#compress
+
+# RPM packages drop log rotation information into this directory
+include /etc/logrotate.d
+
+# no packages own wtmp -- we'll rotate them here
+/var/log/wtmp {
+    monthly
+    minsize 1M
+    create 0664 root utmp
+    rotate 1
+}
+
+# system-specific logs may be also be configured here.
+[student@localhost ~]$ cat /etc/sysconfig/authconfig
+USEWINBINDAUTH=no
+USEHESIOD=no
+USESYSNETAUTH=no
+USEPAMACCESS=no
+USEKERBEROS=no
+FORCESMARTCARD=no
+USESMBAUTH=no
+USESMARTCARD=no
+USELDAPAUTH=no
+PASSWDALGORITHM=md5
+USEWINBIND=no
+USESHADOW=yes
+USEDB=no
+USEPASSWDQC=no
+USELOCAUTHORIZE=no
+USEMKHOMEDIR=no
+USELDAP=no
+USECRACKLIB=yes
+USENIS=no
+[student@localhost ~]$ cat /etc/sysconfig/clock
+ZONE="America/Los_Angeles"
+UTC=true
+ARC=false
+[student@localhost ~]$ cat /etc/sysconfig/i18n
+LANG="en_US.UTF-8"
+SYSFONT="latarcyrheb-sun16"
+[student@localhost ~]$ cat /etc/sysconfig/init
+# color => new RH6.0 bootup
+# verbose => old-style bootup
+# anything else => new style bootup without ANSI colors or positioning
+BOOTUP=color
+# Turn on graphical boot
+GRAPHICAL=yes
+# column to start "[  OK  ]" label in 
+RES_COL=60
+# terminal sequence to move to that column. You could change this
+# to something like "tput hpa ${RES_COL}" if your terminal supports it
+MOVE_TO_COL="echo -en \\033[${RES_COL}G"
+# terminal sequence to set color to a 'success' color (currently: green)
+SETCOLOR_SUCCESS="echo -en \\033[0;32m"
+# terminal sequence to set color to a 'failure' color (currently: red)
+SETCOLOR_FAILURE="echo -en \\033[0;31m"
+# terminal sequence to set color to a 'warning' color (currently: yellow)
+SETCOLOR_WARNING="echo -en \\033[0;33m"
+# terminal sequence to reset to the default color.
+SETCOLOR_NORMAL="echo -en \\033[0;39m"
+# default kernel loglevel on boot (syslog will reset this)
+LOGLEVEL=3
+# Set to anything other than 'no' to allow hotkey interactive startup...
+PROMPT=yes
+# Set to 'yes' to allow probing for devices with swap signatures
+AUTOSWAP=no
+[student@localhost ~]$ cat i/etc/sysconfig/ntpd
+cat: i/etc/sysconfig/ntpd: No such file or directory
+[student@localhost ~]$ cat /etc/sysconfig/ntpd
+# Drop root to id 'ntp:ntp' by default.
+OPTIONS="-u ntp:ntp -p /var/run/ntpd.pid"
+
+# Set to 'yes' to sync hw clock after successful ntpdate
+SYNC_HWCLOCK=no
+
+# Additional options for ntpdate
+NTPDATE_OPTIONS=""
+[student@localhost ~]$ 
+

@@ -1,0 +1,24 @@
+login to the root users
+nfs server
+#rpm -a/grep nfs
+#if config
+#pwd
+#mkdir tyitserver
+#touch f1 f2 f3
+#cat> tyitnfs.text
+welcome to tyit
+#vi/etc/exports
+/root/tyitsever
+#service nfs strt
+#service nfs restrt
+#showmount -e ipaddress
+#service iptables stop
+#chmod -r 777 /root/tyitserver
+
+nfs client
+#pwd
+#service iptables stop
+#mkdir nfsclient
+#mount -t nfs ipaddress :/root/tyitserver/root/nfsclient
+#cd nfsclient()
+#ls

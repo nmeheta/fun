@@ -1,0 +1,109 @@
+A  become super user
+B   temporary changing user identity
+B
+D_admin config file
+----------------------------------------------------------------------------------------
+[student@localhost ~]$ su
+Password: 
+[root@localhost student]# users
+student student
+[root@localhost student]# groups
+root bin daemon sys adm disk wheel
+[root@localhost student]# touch abc
+[root@localhost student]# ls -l
+total 12
+-rw-r--r-- 1 root    root       0 Jul 21 09:26 abc
+drwxr-xr-x 2 student student 4096 May  8  2014 Desktop
+[root@localhost student]# chown student abc
+[root@localhost student]# ls -l
+total 12
+-rw-r--r-- 1 student root       0 Jul 21 09:26 abc
+drwxr-xr-x 2 student student 4096 May  8  2014 Desktop
+[root@localhost student]# chgrp
+chgrp: missing operand
+Try `chgrp --help' for more information.
+[root@localhost student]# whoami
+root
+[root@localhost student]# logname
+student
+[root@localhost student]# uname
+Linux
+[root@localhost student]# uname -a
+Linux localhost.localdomain 2.6.18-128.el5 #1 SMP Wed Dec 17 11:42:39 EST 2008 i686 athlon i386 GNU/Linux
+[root@localhost student]# uname -s
+Linux
+[root@localhost student]# du /home
+676     /home/student/.thumbnails/normal
+684     /home/student/.thumbnails
+24      /home/student/.nautilus/metafiles
+40      /home/student/.nautilus
+76      /home/student/.gconfd
+8       /home/student/.gnome2_private
+32      /home/student/.metacity/sessions
+40      /home/student/.metacity
+8       /home/student/.redhat/esc
+16      /home/student/.redhat
+8       /home/student/.gnome2/keyrings
+8       /home/student/.gnome2/nautilus-scripts
+16      /home/student/.gnome2/accels
+16      /home/student/.gnome2/share/fonts
+16      /home/student/.gnome2/share/cursor-fonts
+40      /home/student/.gnome2/share
+104     /home/student/.gnome2
+16      /home/student/.gconf/apps/panel/applets/systray
+16      /home/student/.gconf/apps/panel/applets/clock/prefs
+32      /home/student/.gconf/apps/panel/applets/clock
+16      /home/student/.gconf/apps/panel/applets/workspace_switcher/prefs
+28      /home/student/.gconf/apps/panel/applets/workspace_switcher
+16      /home/student/.gconf/apps/panel/applets/window_list/prefs
+28      /home/student/.gconf/apps/panel/applets/window_list
+16      /home/student/.gconf/apps/panel/applets/mixer
+132     /home/student/.gconf/apps/panel/applets
+144     /home/student/.gconf/apps/panel
+16      /home/student/.gconf/apps/puplet
+16      /home/student/.gconf/apps/gedit-2/preferences/ui/statusbar
+28      /home/student/.gconf/apps/gedit-2/preferences/ui
+40      /home/student/.gconf/apps/gedit-2/preferences
+52      /home/student/.gconf/apps/gedit-2
+224     /home/student/.gconf/apps
+16      /home/student/.gconf/desktop/gnome/accessibility/keyboard
+28      /home/student/.gconf/desktop/gnome/accessibility
+16      /home/student/.gconf/desktop/gnome/background
+56      /home/student/.gconf/desktop/gnome
+68      /home/student/.gconf/desktop
+300     /home/student/.gconf
+8       /home/student/.mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+16      /home/student/.mozilla/extensions
+8       /home/student/.mozilla/plugins
+8       /home/student/.mozilla/firefox/effpmj2f.default/extensions
+24      /home/student/.mozilla/firefox/effpmj2f.default/chrome
+280     /home/student/.mozilla/firefox/effpmj2f.default/Cache
+16      /home/student/.mozilla/firefox/effpmj2f.default/bookmarkbackups
+3912    /home/student/.mozilla/firefox/effpmj2f.default
+3928    /home/student/.mozilla/firefox
+3960    /home/student/.mozilla
+8       /home/student/.Trash
+8       /home/student/Desktop
+16      /home/student/.gnome/gnome-vfs
+24      /home/student/.gnome
+8       /home/student/.eggcups
+200     /home/student/.gstreamer-0.10
+5576    /home/student
+5584    /home
+[root@localhost student]# du -s/home/*
+du: invalid option -- /
+du: invalid option -- o
+du: invalid option -- e
+du: invalid option -- /
+du: invalid option -- *
+Try `du --help' for more information.
+[root@localhost student]# du -s /home/*
+5576    /home/student
+[root@localhost student]# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda2             17981340   2192820  14860368  13% /
+/dev/sda1               295561     15980    264321   6% /boot
+tmpfs                   517620         0    517620   0% /dev/shm
+/dev/scd0                22416     22416         0 100% /media/CDROM
+[root@localhost student]# 
+

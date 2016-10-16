@@ -1,0 +1,111 @@
+[student@localhost ~]$ mkdir tyit
+[student@localhost ~]$ cd tyit
+[student@localhost tyit]$ cat >f1.txt
+rajmalhotra|marketing|90000
+jayrachh|director|24575
+siaagarwal|president|80000
+seshaggarwal|marketing|90000
+jiaaGrawal|sales|12452
+khushgupta|makketing|50000
+
+[student@localhost tyit]$ cat >f.txt
+[student@localhost tyit]$ cat >f2.txt
+jeetkumar|direector|123689
+chanchalsigh|marketing|56987
+a.k.shukla|g.m|78000
+j.b.saxena|g.m|90000
+k.c.dasgupta|manager|98000
+[student@localhost tyit]$ cat f2
+cat: f2: No such file or directory
+[student@localhost tyit]$ cat f2.txt
+jeetkumar|direector|123689
+chanchalsigh|marketing|56987
+a.k.shukla|g.m|78000
+j.b.saxena|g.m|90000
+k.c.dasgupta|manager|98000
+[student@localhost tyit]$ grep president f1.txt
+siaagarwal|president|80000
+[student@localhost tyit]$ ~grep director f1.txt f2.txt
+bash: ~grep: command not found
+[student@localhost tyit]$ grep director f1.txt f2.txt
+f1.txt:jayrachh|director|24575
+[student@localhost tyit]$ grep 'kushgupta' f1.txt
+[student@localhost tyit]$ grep 'kushgupta' f1.txt
+kushgupta|makketing|50000
+[student@localhost tyit]$ grep -i 'agarwal' f1.txt
+siaagarwal|president|80000
+[student@localhost tyit]$ grep -v 'director' f1.txt
+rajmalhotra|marketing|90000
+siaagarwal|president|80000
+seshaggarwal|marketing|90000
+jiaaGrawal|sales|12452
+kushgupta|makketing|50000
+
+[student@localhost tyit]$ grep -n'marketing' f1.txt
+grep: invalid max count
+[student@localhost tyit]$ grep -n 'marketing' f1.txt
+1:rajmalhotra|marketing|90000
+4:seshaggarwal|marketing|90000
+[student@localhost tyit]$ grep -n 'marketing' f1.txt
+1:rajmalhotra|marketing|90000
+4:seshaggarwal|marketing|90000
+[student@localhost tyit]$ grep -n 'marketing' f1.txt
+1:rajmalhotra|marketing|90000
+4:seshaggarwal|marketing|90000
+[student@localhost tyit]$ grep -c 'marketing' f1.txt
+2
+[student@localhost tyit]$ grep -l 'marketing' *  f1.txt
+f1.txt
+f1.txt~
+f2.txt
+f2.txt~
+f1.txt
+[student@localhost tyit]$ grep -l 'marketing' *.txt
+f1.txt
+f2.txt
+[student@localhost tyit]$ grep -e "aggarwal 
+> bash: unexpected EOF while looking for matching `"'
+bash: syntax error: unexpected end of file
+[student@localhost tyit]$ grep -e "aggarwal" -e "aGrawal" f1.txt
+seshaggarwal|marketing|90000
+jiaaGrawal|sales|12452
+[student@localhost tyit]$ grep "{aA} g {ar} {ar} wal" f1.txt
+[student@localhost tyit]$ grep "[aA]g[ar][ar]wal" f1.txt
+siaagarwal|president|80000
+[student@localhost tyit]$ grep "[aA][gG][ar][ar]wal" f1.txt
+siaagarwal|president|80000
+jiaaGrawal|sales|12452
+[student@localhost tyit]$ grep "[aA]G[ar][ar]wal" f1.txt
+jiaaGrawal|sales|12452
+[student@localhost tyit]$ grep "[aA]gg*[ar][ar]wal" f1.txt
+siaagarwal|president|80000
+seshaggarwal|marketing|90000
+[student@localhost tyit]$ grep "j.*saxena" f2.txt
+j.b.saxena|g.m|90000
+[student@localhost tyit]$ grep "" f2.txt
+[student@localhost tyit]$ grep "^r" f2.txt
+[student@localhost tyit]$ grep "^r" f1.txt
+rajmalhotra|marketing|90000
+[student@localhost tyit]$ grep "^[^r]" f1.txt
+jayrachh|director|24575
+siaagarwal|president|80000
+seshaggarwal|marketing|90000
+jiaaGrawal|sales|12452
+kushgupta|marketing|50000
+[student@localhost tyit]$ grep "^9....$" f2.txt
+[student@localhost tyit]$ grep "9....$" f2.txt
+j.b.saxena|g.m|90000
+k.c.dasgupta|manager|98000
+[student@localhost tyit]$ grep -E[aA]g+arwal f1.txt
+grep: invalid option -- [
+Usage: grep [OPTION]... PATTERN [FILE]...
+Try `grep --help' for more information.
+[student@localhost tyit]$ grep -E [aA]g+arwal f1.txt
+siaagarwal|president|80000
+seshaggarwal|marketing|90000
+[student@localhost tyit]$ grep -E [aA]g?arwal f1.txt
+siaagarwal|president|80000
+[student@localhost tyit]$ grep -E '(sen/das)gupta' f2.txt
+[student@localhost tyit]$ grep -E '(sen|das)gupta' f2.txt
+k.c.dasgupta|manager|98000
+[student@localhost tyit]$ 
