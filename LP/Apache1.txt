@@ -1,0 +1,42 @@
+note : (login the system being root user )
+
+step
+1)Download httpd-2.2.25.tar.gz
+2)[root@localhost~]#tar -xzf httpd -2.2.25.tar.gz
+3)change the directory to httpd -2.2.25
+[root@localhost~]cd httpd -2.2.25
+4) [root@localhost~]# ./configure
+5) [root@localhost~]# make
+6) [root@localhost~]# make install
+7) [root@localhost~]# /etc/httpd/conf/httpd.conf
+edit Listen80
+Change to listen 172.16.1.40:80
+save & exit
+8) Change directory to /usr/local/apache2/bin.
+change directory # cd/usr/local/apache2/bin.
+9) Start service
+Start service #Sh apache +| -k start.
+10) go to browser of type 
+http://local host.
+
+
+on the System:---
+
+1)Change directory to /etc/httpd/conf
+[root@localhost student]#cd /etc/httpd/conf.
+type ls command you will see configuration 
+file for apache 'httpd.conf'.
+[root@localhost cong]#ls.
+
+2)Change directory to var/www/html/
+[root@localhost conf]#cd var/www/html/
+create a file 'index.html'
+[root@localhost html] # vi index.html
+<h2> Welcome to viva college </h2>
+press esc ->:wq
+
+3)Start html service
+[root@localhost html]#service httpd start.
+
+4) on the browser type following 
+http:// local host.
